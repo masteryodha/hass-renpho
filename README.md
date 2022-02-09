@@ -42,5 +42,5 @@ Be aware that for Android, you need to have Android 6 or less as web certificate
 
 
 ### RoadMap / What's to come
-Get All the users and create sensor for all of them
-Specify in the config which users to get
+- Get All the users and create sensor for all of them
+- Specify in the config which users to get
