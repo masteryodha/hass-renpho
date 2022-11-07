@@ -29,10 +29,11 @@ sensor:
 
 
 ### Important information
-- Bear in mind everytime you log in it logs you out of the app, so in my example it gives me ten minutes between checking in case I ever wish to browse the app.
+- Bear in mind everytime you log in it logs you out of the app, so in my example it gives me ten minutes (660 seconds) between checking in case I ever wish to browse the app.
 - The MASS data are stored in Kg on the renpho API.  So, if you select the weight_units, in lb, a conversion will be made by a factor of 2.2046226218
 
 
 ### RoadMap / What's to come
 - Get All the users and create sensor for all of them
 - Specify in the config which users to get
+- Don't get logged out of mobile app when connecting via this python
