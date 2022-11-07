@@ -11,8 +11,8 @@ Copy this folder to `<config_dir>/custom_components/renpho_weight/`.
 
 - `email` is **mandatory** and represent the email you use to log in the app
 - `password` is **mandatory** and represent the password you use to log in the app
-- `refresh` is **mandatory** and represent the time to check for update. 
-- `weight_units` is **mandatory** and represent the unit of every MASS sensor.  Possible values are 'kg' or 'lb'.
+- `refresh` is **optional** and represent the time to check for update. 
+- `weight_units` is **optional** and represent the unit of every MASS sensor.  Possible values are 'kg' or 'lb'.
 
 For example, add the following entry in your `configuration.yaml`:
 
