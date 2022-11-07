@@ -8,7 +8,7 @@ import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
-from .const import DOMAIN, CONF_EMAIL, CONF_PASSWORD_HASH, CONF_REFRESH, CONF_WEIGHT_UNITS, DEFAULT_CONF_WEIGHT_UNITS, DEFAULT_CONF_REFRESH
+from .const import DOMAIN, CONF_EMAIL, CONF_REFRESH, CONF_WEIGHT_UNITS, DEFAULT_CONF_WEIGHT_UNITS, DEFAULT_CONF_REFRESH, CONF_PUBLIC_KEY, CONF_PASSWORD
 from .RenphoWeight import RenphoWeight
 
 _LOGGER = logging.getLogger(__name__)
@@ -17,7 +17,7 @@ CONFIG_SCHEMA = vol.Schema(
         DOMAIN: vol.Schema(
             {
                 vol.Required(CONF_EMAIL): str,
-                vol.Required(CONF_PASSWORD_HASH): str,
+                vol.Required(CONF_PASSWORD): str,
                 vol.Optional(
                     CONF_WEIGHT_UNITS, default=CONF_WEIGHT_UNITS
                 ): str,
@@ -41,11 +41,11 @@ async def async_setup(hass: core.HomeAssistant, config: dict) -> bool:
     
     conf = config[DOMAIN]
     email = conf[CONF_EMAIL]
-    password_hash = conf[CONF_PASSWORD_HASH]
+    password = conf[CONF_PASSWORD]
     unit_of_measurements = conf[CONF_WEIGHT_UNITS]
     refresh_interval = conf[CONF_REFRESH]
     
-    renpho = RenphoWeight(email, password_hash, async_get_clientsession(hass), unit_of_measurements)
+    renpho = RenphoWeight(email, password, CONF_PUBLIC_KEY, async_get_clientsession(hass), unit_of_measurements)
     
     coordinator = DataUpdateCoordinator(
         hass,
@@ -65,6 +65,5 @@ async def async_setup(hass: core.HomeAssistant, config: dict) -> bool:
         "coordinator": coordinator,
     }
     
-    #Seems to be creating every sensor a second time with an index at the end of the entity id
     #hass.async_create_task(async_load_platform(hass, "sensor", DOMAIN, {}, conf))
     return True
