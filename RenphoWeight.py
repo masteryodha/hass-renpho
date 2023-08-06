@@ -70,8 +70,29 @@ class RenphoWeight():
             resp = await self.session.get(url)
             data = await resp.json(content_type=None)
             _LOGGER.debug('RENPHO WEIGHT - Got Measurements successfully')
+                        
+            if (len(data['last_ary']) == 0): 
+              _LOGGER.info('RENPHO WEIGHT - No measurements in the last 30 days')
+              return Measurements(weight = 0, 
+                                created_at = datetime.datetime.now(),
+                                bodyfat = 0,
+                                water = 0,
+                                bmr = 0,
+                                bodyage = 0,
+                                bone = 0,
+                                subfat = 0,
+                                visfat = 0,
+                                bmi = 0,
+                                sinew = 0,
+                                protein = 0,
+                                fat_free_weight = 0,
+                                muscle = 0,
+                                user_id = self.user_id,
+                                account_name = self.account_name,
+                                unit_of_measurements = self.unit_of_measurements)
             
             parsed_data = data['last_ary'][0]
+            _LOGGER.info('RENPHO WEIGHT - Got Measurements successfully')
             
             #Return the first of the last measurements on the renpho API.  Should be the latest for the main user.
             return Measurements(weight = parsed_data['weight'], 
