@@ -1,9 +1,9 @@
 """Platform for sensor integration."""
 from __future__ import annotations
 
-from homeassistant.const import MASS_KILOGRAMS, PERCENTAGE
+from homeassistant.const import PERCENTAGE
 from .types import Measurements
-from .const import KG_TO_LB_MULTIPLICATOR, DOMAIN
+from .const import KG_TO_LB_MULTIPLICATOR, DOMAIN, MASS_KILOGRAMS
 import logging
 from homeassistant import core
 from homeassistant.util import slugify

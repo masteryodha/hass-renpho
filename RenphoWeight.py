@@ -3,7 +3,7 @@ import requests
 import json
 import time
 import datetime
-from homeassistant.const import MASS_KILOGRAMS, MASS_POUNDS
+from .const import MASS_KILOGRAMS, MASS_POUNDS
 from .types import Measurements
 #from aiohttp import ClientSession
 
