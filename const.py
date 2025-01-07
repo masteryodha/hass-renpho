@@ -4,7 +4,7 @@ from typing import Final
 """Constants for constants sake"""
 
 DOMAIN: Final = "renpho_weight"
-VERSION: Final = "0.0.1"
+VERSION: Final = "0.0.2"
 
 CONF_EMAIL: Final = 'email'
 CONF_PASSWORD: Final = 'password'

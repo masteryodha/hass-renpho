@@ -5,6 +5,9 @@ If you are using the new Renpho Health, it will not work correctly
 # Renpho Weight
 
 This is a custom component to import weight and last weigh time from the Renpho app into Home Assistant.
+You have to use the old outdated Renpho app for this integration
+Android: https://play.google.com/store/apps/details?id=com.qingniu.renpho&hl=en_US
+Apple: https://apps.apple.com/us/app/renpho-outdated-version/id1219889310
 
 ### Installation
 
